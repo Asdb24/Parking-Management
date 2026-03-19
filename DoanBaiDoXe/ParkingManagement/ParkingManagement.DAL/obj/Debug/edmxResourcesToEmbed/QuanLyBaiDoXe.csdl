@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ParkingManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Apartments">
+    <Key>
+      <PropertyRef Name="ApartmentID" />
+    </Key>
+    <Property Name="ApartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingID" Type="Int32" Nullable="false" />
+    <Property Name="ApartmentCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApartmentNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Floor" Type="Int32" Nullable="false" />
+    <Property Name="Area" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Bedrooms" Type="Int32" />
+    <Property Name="OwnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Buildings" Relationship="Self.FK_Apartments_Buildings" FromRole="Apartments" ToRole="Buildings" />
+    <NavigationProperty Name="GuestVehicles" Relationship="Self.FK_GuestVehicles_Apartments" FromRole="Apartments" ToRole="GuestVehicles" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Apartments" FromRole="Apartments" ToRole="Invoices" />
+    <NavigationProperty Name="Residents" Relationship="Self.FK_Residents_Apartments" FromRole="Apartments" ToRole="Residents" />
+  </EntityType>
+  <EntityType Name="AuditLogs">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RecordID" Type="Int32" />
+    <Property Name="OldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MachineName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LogDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_AuditLogs_Users" FromRole="AuditLogs" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Buildings">
+    <Key>
+      <PropertyRef Name="BuildingID" />
+    </Key>
+    <Property Name="BuildingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BuildingName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TotalFloors" Type="Int32" />
+    <Property Name="TotalApartments" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartments_Buildings" FromRole="Buildings" ToRole="Apartments" />
+  </EntityType>
+  <EntityType Name="GuestVehicles">
+    <Key>
+      <PropertyRef Name="GuestVehicleID" />
+    </Key>
+    <Property Name="GuestVehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicensePlate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VehicleTypeID" Type="Int32" Nullable="false" />
+    <Property Name="DriverName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DriverPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VisitingApartmentID" Type="Int32" />
+    <Property Name="Purpose" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CheckInTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CheckOutTime" Type="DateTime" Precision="3" />
+    <Property Name="CheckInImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CheckOutImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SlotID" Type="Int32" />
+    <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsPaid" Type="Boolean" />
+    <Property Name="CheckInBy" Type="Int32" />
+    <Property Name="CheckOutBy" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_GuestVehicles_Apartments" FromRole="GuestVehicles" ToRole="Apartments" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_GuestVehicles_CheckInBy" FromRole="GuestVehicles" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.FK_GuestVehicles_CheckOutBy" FromRole="GuestVehicles" ToRole="Users" />
+    <NavigationProperty Name="ParkingSlots" Relationship="Self.FK_GuestVehicles_Slots" FromRole="GuestVehicles" ToRole="ParkingSlots" />
+    <NavigationProperty Name="VehicleTypes" Relationship="Self.FK_GuestVehicles_VehicleTypes" FromRole="GuestVehicles" ToRole="VehicleTypes" />
+  </EntityType>
+  <EntityType Name="InvoiceDetails">
+    <Key>
+      <PropertyRef Name="DetailID" />
+    </Key>
+    <Property Name="DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="VehicleID" Type="Int32" Nullable="false" />
+    <Property Name="FeeID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ParkingFees" Relationship="Self.FK_InvoiceDetails_Fees" FromRole="InvoiceDetails" ToRole="ParkingFees" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetails" ToRole="Invoices" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_InvoiceDetails_Vehicles" FromRole="InvoiceDetails" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Invoices">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceMonth" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceYear" Type="Int32" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FinalAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PaidDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="InvoiceStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Invoices_Apartments" FromRole="Invoices" ToRole="Apartments" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK_InvoiceDetails_Invoices" FromRole="Invoices" ToRole="InvoiceDetails" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Invoices_CreatedBy" FromRole="Invoices" ToRole="Users" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_Invoices" FromRole="Invoices" ToRole="Payments" />
+  </EntityType>
+  <EntityType Name="LoginHistory">
+    <Key>
+      <PropertyRef Name="HistoryID" />
+    </Key>
+    <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="LoginTime" Type="DateTime" Precision="3" />
+    <Property Name="LogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MachineName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LoginStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FailReason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_LoginHistory_Users" FromRole="LoginHistory" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="ParkingFees">
+    <Key>
+      <PropertyRef Name="FeeID" />
+    </Key>
+    <Property Name="FeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleTypeID" Type="Int32" Nullable="false" />
+    <Property Name="FeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FeeType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK_InvoiceDetails_Fees" FromRole="ParkingFees" ToRole="InvoiceDetails" />
+    <NavigationProperty Name="VehicleTypes" Relationship="Self.FK_ParkingFees_VehicleTypes" FromRole="ParkingFees" ToRole="VehicleTypes" />
+  </EntityType>
+  <EntityType Name="ParkingLogs">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleID" Type="Int32" Nullable="false" />
+    <Property Name="SlotID" Type="Int32" />
+    <Property Name="CheckInTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CheckOutTime" Type="DateTime" Precision="3" />
+    <Property Name="CheckInImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CheckOutImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CheckInBy" Type="Int32" />
+    <Property Name="CheckOutBy" Type="Int32" />
+    <Property Name="ParkingType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Fee" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LogStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_ParkingLogs_CheckInBy" FromRole="ParkingLogs" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.FK_ParkingLogs_CheckOutBy" FromRole="ParkingLogs" ToRole="Users" />
+    <NavigationProperty Name="ParkingSlots" Relationship="Self.FK_ParkingLogs_Slots" FromRole="ParkingLogs" ToRole="ParkingSlots" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_ParkingLogs_Vehicles" FromRole="ParkingLogs" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="ParkingSlots">
+    <Key>
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="SlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZoneID" Type="Int32" Nullable="false" />
+    <Property Name="SlotCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SlotNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SlotType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RowPosition" Type="Int32" />
+    <Property Name="ColumnPosition" Type="Int32" />
+    <Property Name="Width" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Length" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="SlotStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GuestVehicles" Relationship="Self.FK_GuestVehicles_Slots" FromRole="ParkingSlots" ToRole="GuestVehicles" />
+    <NavigationProperty Name="ParkingLogs" Relationship="Self.FK_ParkingLogs_Slots" FromRole="ParkingSlots" ToRole="ParkingLogs" />
+    <NavigationProperty Name="ParkingZones" Relationship="Self.FK_ParkingSlots_Zones" FromRole="ParkingSlots" ToRole="ParkingZones" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Slots" FromRole="ParkingSlots" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="ParkingZones">
+    <Key>
+      <PropertyRef Name="ZoneID" />
+    </Key>
+    <Property Name="ZoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZoneCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ZoneName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FloorLevel" Type="Int32" />
+    <Property Name="TotalSlots" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="ParkingSlots" Relationship="Self.FK_ParkingSlots_Zones" FromRole="ParkingZones" ToRole="ParkingSlots" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TransactionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReceivedBy" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Payments_Invoices" FromRole="Payments" ToRole="Invoices" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Payments_ReceivedBy" FromRole="Payments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Residents">
+    <Key>
+      <PropertyRef Name="ResidentID" />
+    </Key>
+    <Property Name="ResidentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApartmentID" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="IDCardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsOwner" Type="Boolean" />
+    <Property Name="RelationshipWithOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Apartments" Relationship="Self.FK_Residents_Apartments" FromRole="Residents" ToRole="Apartments" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Residents" FromRole="Residents" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRoles_Roles" FromRole="Roles" ToRole="UserRoles" />
+  </EntityType>
+  <EntityType Name="SystemConfigs">
+    <Key>
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfigKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ConfigValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ConfigType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_SystemConfigs_Users" FromRole="SystemConfigs" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="UserRoleID" />
+    </Key>
+    <Property Name="UserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="AssignedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_UserRoles_Roles" FromRole="UserRoles" ToRole="Roles" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_UserRoles_Users" FromRole="UserRoles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FailedLoginCount" Type="Int32" />
+    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="AuditLogs" Relationship="Self.FK_AuditLogs_Users" FromRole="Users" ToRole="AuditLogs" />
+    <NavigationProperty Name="GuestVehicles" Relationship="Self.FK_GuestVehicles_CheckInBy" FromRole="Users" ToRole="GuestVehicles" />
+    <NavigationProperty Name="GuestVehicles1" Relationship="Self.FK_GuestVehicles_CheckOutBy" FromRole="Users" ToRole="GuestVehicles" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_CreatedBy" FromRole="Users" ToRole="Invoices" />
+    <NavigationProperty Name="LoginHistory" Relationship="Self.FK_LoginHistory_Users" FromRole="Users" ToRole="LoginHistory" />
+    <NavigationProperty Name="ParkingLogs" Relationship="Self.FK_ParkingLogs_CheckInBy" FromRole="Users" ToRole="ParkingLogs" />
+    <NavigationProperty Name="ParkingLogs1" Relationship="Self.FK_ParkingLogs_CheckOutBy" FromRole="Users" ToRole="ParkingLogs" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_ReceivedBy" FromRole="Users" ToRole="Payments" />
+    <NavigationProperty Name="SystemConfigs" Relationship="Self.FK_SystemConfigs_Users" FromRole="Users" ToRole="SystemConfigs" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRoles_Users" FromRole="Users" ToRole="UserRoles" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResidentID" Type="Int32" Nullable="false" />
+    <Property Name="VehicleTypeID" Type="Int32" Nullable="false" />
+    <Property Name="SlotID" Type="Int32" />
+    <Property Name="LicensePlate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="YearOfManufacture" Type="Int32" />
+    <Property Name="CardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LicensePlateImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK_InvoiceDetails_Vehicles" FromRole="Vehicles" ToRole="InvoiceDetails" />
+    <NavigationProperty Name="ParkingLogs" Relationship="Self.FK_ParkingLogs_Vehicles" FromRole="Vehicles" ToRole="ParkingLogs" />
+    <NavigationProperty Name="ParkingSlots" Relationship="Self.FK_Vehicles_Slots" FromRole="Vehicles" ToRole="ParkingSlots" />
+    <NavigationProperty Name="Residents" Relationship="Self.FK_Vehicles_Residents" FromRole="Vehicles" ToRole="Residents" />
+    <NavigationProperty Name="VehicleTypes" Relationship="Self.FK_Vehicles_VehicleTypes" FromRole="Vehicles" ToRole="VehicleTypes" />
+  </EntityType>
+  <EntityType Name="VehicleTypes">
+    <Key>
+      <PropertyRef Name="VehicleTypeID" />
+    </Key>
+    <Property Name="VehicleTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="GuestVehicles" Relationship="Self.FK_GuestVehicles_VehicleTypes" FromRole="VehicleTypes" ToRole="GuestVehicles" />
+    <NavigationProperty Name="ParkingFees" Relationship="Self.FK_ParkingFees_VehicleTypes" FromRole="VehicleTypes" ToRole="ParkingFees" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_VehicleTypes" FromRole="VehicleTypes" ToRole="Vehicles" />
+  </EntityType>
+  <Association Name="FK_Apartments_Buildings">
+    <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
+    <End Role="Apartments" Type="Self.Apartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="BuildingID" />
+      </Principal>
+      <Dependent Role="Apartments">
+        <PropertyRef Name="BuildingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GuestVehicles_Apartments">
+    <End Role="Apartments" Type="Self.Apartments" Multiplicity="0..1" />
+    <End Role="GuestVehicles" Type="Self.GuestVehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Apartments">
+        <PropertyRef Name="ApartmentID" />
+      </Principal>
+      <Dependent Role="GuestVehicles">
+        <PropertyRef Name="VisitingApartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoices_Apartments">
+    <End Role="Apartments" Type="Self.Apartments" Multiplicity="1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Apartments">
+        <PropertyRef Name="ApartmentID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="ApartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Residents_Apartments">
+    <End Role="Apartments" Type="Self.Apartments" Multiplicity="1" />
+    <End Role="Residents" Type="Self.Residents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Apartments">
+        <PropertyRef Name="ApartmentID" />
+      </Principal>
+      <Dependent Role="Residents">
+        <PropertyRef Name="ApartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuditLogs_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="AuditLogs" Type="Self.AuditLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="AuditLogs">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GuestVehicles_CheckInBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="GuestVehicles" Type="Self.GuestVehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="GuestVehicles">
+        <PropertyRef Name="CheckInBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GuestVehicles_CheckOutBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="GuestVehicles" Type="Self.GuestVehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="GuestVehicles">
+        <PropertyRef Name="CheckOutBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GuestVehicles_Slots">
+    <End Role="ParkingSlots" Type="Self.ParkingSlots" Multiplicity="0..1" />
+    <End Role="GuestVehicles" Type="Self.GuestVehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingSlots">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="GuestVehicles">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GuestVehicles_VehicleTypes">
+    <End Role="VehicleTypes" Type="Self.VehicleTypes" Multiplicity="1" />
+    <End Role="GuestVehicles" Type="Self.GuestVehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleTypes">
+        <PropertyRef Name="VehicleTypeID" />
+      </Principal>
+      <Dependent Role="GuestVehicles">
+        <PropertyRef Name="VehicleTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceDetails_Fees">
+    <End Role="ParkingFees" Type="Self.ParkingFees" Multiplicity="1" />
+    <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingFees">
+        <PropertyRef Name="FeeID" />
+      </Principal>
+      <Dependent Role="InvoiceDetails">
+        <PropertyRef Name="FeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceDetails_Invoices">
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
+    <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="InvoiceDetails">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceDetails_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+    <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="InvoiceDetails">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoices_CreatedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_Invoices">
+    <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginHistory_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="LoginHistory" Type="Self.LoginHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="LoginHistory">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingFees_VehicleTypes">
+    <End Role="VehicleTypes" Type="Self.VehicleTypes" Multiplicity="1" />
+    <End Role="ParkingFees" Type="Self.ParkingFees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleTypes">
+        <PropertyRef Name="VehicleTypeID" />
+      </Principal>
+      <Dependent Role="ParkingFees">
+        <PropertyRef Name="VehicleTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingLogs_CheckInBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ParkingLogs" Type="Self.ParkingLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ParkingLogs">
+        <PropertyRef Name="CheckInBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingLogs_CheckOutBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ParkingLogs" Type="Self.ParkingLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ParkingLogs">
+        <PropertyRef Name="CheckOutBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingLogs_Slots">
+    <End Role="ParkingSlots" Type="Self.ParkingSlots" Multiplicity="0..1" />
+    <End Role="ParkingLogs" Type="Self.ParkingLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingSlots">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="ParkingLogs">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingLogs_Vehicles">
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+    <End Role="ParkingLogs" Type="Self.ParkingLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicles">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="ParkingLogs">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingSlots_Zones">
+    <End Role="ParkingZones" Type="Self.ParkingZones" Multiplicity="1" />
+    <End Role="ParkingSlots" Type="Self.ParkingSlots" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingZones">
+        <PropertyRef Name="ZoneID" />
+      </Principal>
+      <Dependent Role="ParkingSlots">
+        <PropertyRef Name="ZoneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Slots">
+    <End Role="ParkingSlots" Type="Self.ParkingSlots" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingSlots">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_ReceivedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="ReceivedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Residents">
+    <End Role="Residents" Type="Self.Residents" Multiplicity="1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Residents">
+        <PropertyRef Name="ResidentID" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="ResidentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemConfigs_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SystemConfigs" Type="Self.SystemConfigs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SystemConfigs">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_VehicleTypes">
+    <End Role="VehicleTypes" Type="Self.VehicleTypes" Multiplicity="1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleTypes">
+        <PropertyRef Name="VehicleTypeID" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="VehicleTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ParkingManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Apartments" EntityType="Self.Apartments" />
+    <EntitySet Name="AuditLogs" EntityType="Self.AuditLogs" />
+    <EntitySet Name="Buildings" EntityType="Self.Buildings" />
+    <EntitySet Name="GuestVehicles" EntityType="Self.GuestVehicles" />
+    <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetails" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoices" />
+    <EntitySet Name="LoginHistory" EntityType="Self.LoginHistory" />
+    <EntitySet Name="ParkingFees" EntityType="Self.ParkingFees" />
+    <EntitySet Name="ParkingLogs" EntityType="Self.ParkingLogs" />
+    <EntitySet Name="ParkingSlots" EntityType="Self.ParkingSlots" />
+    <EntitySet Name="ParkingZones" EntityType="Self.ParkingZones" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" />
+    <EntitySet Name="Residents" EntityType="Self.Residents" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="SystemConfigs" EntityType="Self.SystemConfigs" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicles" />
+    <EntitySet Name="VehicleTypes" EntityType="Self.VehicleTypes" />
+    <AssociationSet Name="FK_Apartments_Buildings" Association="Self.FK_Apartments_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Apartments" EntitySet="Apartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GuestVehicles_Apartments" Association="Self.FK_GuestVehicles_Apartments">
+      <End Role="Apartments" EntitySet="Apartments" />
+      <End Role="GuestVehicles" EntitySet="GuestVehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoices_Apartments" Association="Self.FK_Invoices_Apartments">
+      <End Role="Apartments" EntitySet="Apartments" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Residents_Apartments" Association="Self.FK_Residents_Apartments">
+      <End Role="Apartments" EntitySet="Apartments" />
+      <End Role="Residents" EntitySet="Residents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuditLogs_Users" Association="Self.FK_AuditLogs_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AuditLogs" EntitySet="AuditLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GuestVehicles_CheckInBy" Association="Self.FK_GuestVehicles_CheckInBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="GuestVehicles" EntitySet="GuestVehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GuestVehicles_CheckOutBy" Association="Self.FK_GuestVehicles_CheckOutBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="GuestVehicles" EntitySet="GuestVehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GuestVehicles_Slots" Association="Self.FK_GuestVehicles_Slots">
+      <End Role="ParkingSlots" EntitySet="ParkingSlots" />
+      <End Role="GuestVehicles" EntitySet="GuestVehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GuestVehicles_VehicleTypes" Association="Self.FK_GuestVehicles_VehicleTypes">
+      <End Role="VehicleTypes" EntitySet="VehicleTypes" />
+      <End Role="GuestVehicles" EntitySet="GuestVehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceDetails_Fees" Association="Self.FK_InvoiceDetails_Fees">
+      <End Role="ParkingFees" EntitySet="ParkingFees" />
+      <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="Self.FK_InvoiceDetails_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceDetails_Vehicles" Association="Self.FK_InvoiceDetails_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoices_CreatedBy" Association="Self.FK_Invoices_CreatedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_Invoices" Association="Self.FK_Payments_Invoices">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistory_Users" Association="Self.FK_LoginHistory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginHistory" EntitySet="LoginHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingFees_VehicleTypes" Association="Self.FK_ParkingFees_VehicleTypes">
+      <End Role="VehicleTypes" EntitySet="VehicleTypes" />
+      <End Role="ParkingFees" EntitySet="ParkingFees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingLogs_CheckInBy" Association="Self.FK_ParkingLogs_CheckInBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ParkingLogs" EntitySet="ParkingLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingLogs_CheckOutBy" Association="Self.FK_ParkingLogs_CheckOutBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ParkingLogs" EntitySet="ParkingLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingLogs_Slots" Association="Self.FK_ParkingLogs_Slots">
+      <End Role="ParkingSlots" EntitySet="ParkingSlots" />
+      <End Role="ParkingLogs" EntitySet="ParkingLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingLogs_Vehicles" Association="Self.FK_ParkingLogs_Vehicles">
+      <End Role="Vehicles" EntitySet="Vehicles" />
+      <End Role="ParkingLogs" EntitySet="ParkingLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingSlots_Zones" Association="Self.FK_ParkingSlots_Zones">
+      <End Role="ParkingZones" EntitySet="ParkingZones" />
+      <End Role="ParkingSlots" EntitySet="ParkingSlots" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Slots" Association="Self.FK_Vehicles_Slots">
+      <End Role="ParkingSlots" EntitySet="ParkingSlots" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_ReceivedBy" Association="Self.FK_Payments_ReceivedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Residents" Association="Self.FK_Vehicles_Residents">
+      <End Role="Residents" EntitySet="Residents" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemConfigs_Users" Association="Self.FK_SystemConfigs_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SystemConfigs" EntitySet="SystemConfigs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="Self.FK_UserRoles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_VehicleTypes" Association="Self.FK_Vehicles_VehicleTypes">
+      <End Role="VehicleTypes" EntitySet="VehicleTypes" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,36 @@
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.csproj.AssemblyReference.cache
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.BLL.dll.config
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.BLL.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.BLL.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DAL.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DTO.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DTO.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DTO.dll.config
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DAL.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DAL.dll.config
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingM.E158D2CC.Up2Date
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.BLL.dll.config
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.BLL.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.BLL.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DAL.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DTO.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DTO.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DTO.dll.config
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DAL.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\ParkingManagement.DAL.dll.config
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.xml
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.csproj.AssemblyReference.cache
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.csproj.CoreCompileInputs.cache
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingM.E158D2CC.Up2Date
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.BLL\obj\Debug\ParkingManagement.BLL.pdb

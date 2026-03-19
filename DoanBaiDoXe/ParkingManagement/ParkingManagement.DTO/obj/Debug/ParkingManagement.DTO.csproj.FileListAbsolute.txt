@@ -1,0 +1,12 @@
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\ParkingManagement.DTO.dll.config
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\ParkingManagement.DTO.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\ParkingManagement.DTO.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\obj\Debug\ParkingManagement.DTO.csproj.AssemblyReference.cache
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\obj\Debug\ParkingManagement.DTO.csproj.CoreCompileInputs.cache
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\obj\Debug\ParkingManagement.DTO.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\obj\Debug\ParkingManagement.DTO.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\EntityFramework.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\EntityFramework.xml
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DTO\obj\Debug\ParkingM.F3E4477D.Up2Date

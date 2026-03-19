@@ -1,0 +1,30 @@
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.csproj.AssemblyReference.cache
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DAL.dll.config
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DAL.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DAL.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DTO.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DTO.pdb
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DTO.dll.config
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingM.CD462899.Up2Date
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.dll
+C:\Users\Tran Huy\Downloads\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DAL.dll.config
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DAL.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DAL.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DTO.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DTO.pdb
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\ParkingManagement.DTO.dll.config
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.xml
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.csproj.AssemblyReference.cache
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.csproj.CoreCompileInputs.cache
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingM.CD462899.Up2Date
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.dll
+D:\Download\DoanBaiDoXe\DoanBaiDoXe\ParkingManagement\ParkingManagement.DAL\obj\Debug\ParkingManagement.DAL.pdb

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2222222-2222-2222-2222-222222222222}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ParkingManagement.DAL</RootNamespace>
+    <AssemblyName>ParkingManagement.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApartmentDAL.cs" />
+    <Compile Include="Apartments.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditLogs.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuildingDAL.cs" />
+    <Compile Include="Buildings.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardDAL.cs" />
+    <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="GuestVehicles.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDetails.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoices.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoginHistory.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingFees.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingLogDAL.cs" />
+    <Compile Include="ParkingLogs.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingSlotDAL.cs" />
+    <Compile Include="ParkingSlots.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingZoneDAL.cs" />
+    <Compile Include="ParkingZones.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payments.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBaiDoXe.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBaiDoXe.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBaiDoXe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBaiDoXe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBaiDoXe.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ResidentDAL.cs" />
+    <Compile Include="Residents.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDAL.cs" />
+    <Compile Include="Roles.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfigs.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="UserRoles.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleDAL.cs" />
+    <Compile Include="Vehicles.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleTypeDAL.cs" />
+    <Compile Include="VehicleTypes.cs">
+      <DependentUpon>QuanLyBaiDoXe.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ParkingManagement.DTO\ParkingManagement.DTO.csproj">
+      <Project>{A1111111-1111-1111-1111-111111111111}</Project>
+      <Name>ParkingManagement.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="QuanLyBaiDoXe.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyBaiDoXe.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="QuanLyBaiDoXe.edmx.diagram">
+      <DependentUpon>QuanLyBaiDoXe.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuanLyBaiDoXe.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyBaiDoXe.edmx</DependentUpon>
+      <LastGenOutput>QuanLyBaiDoXe.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QuanLyBaiDoXe.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyBaiDoXe.edmx</DependentUpon>
+      <LastGenOutput>QuanLyBaiDoXe.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

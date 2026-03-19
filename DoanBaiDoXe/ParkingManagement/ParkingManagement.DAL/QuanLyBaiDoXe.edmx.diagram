@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c98739a01a6644658e6cd80c561ea594" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="ParkingManagementModel.Apartments" Width="1.5" PointX="3.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.AuditLogs" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Buildings" Width="1.5" PointX="1.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.GuestVehicles" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.InvoiceDetails" Width="1.5" PointX="11.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Invoices" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.LoginHistory" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.ParkingFees" Width="1.5" PointX="9" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.ParkingLogs" Width="1.5" PointX="9" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.ParkingSlots" Width="1.5" PointX="6.75" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.ParkingZones" Width="1.5" PointX="4.5" PointY="42.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Payments" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Residents" Width="1.5" PointX="6.75" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Roles" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.SystemConfigs" Width="1.5" PointX="3" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.UserRoles" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Users" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.Vehicles" Width="1.5" PointX="9" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingManagementModel.VehicleTypes" Width="1.5" PointX="6.75" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Apartments_Buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_GuestVehicles_Apartments" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Invoices_Apartments" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Residents_Apartments" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_AuditLogs_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_GuestVehicles_CheckInBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_GuestVehicles_CheckOutBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_GuestVehicles_Slots" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_GuestVehicles_VehicleTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_InvoiceDetails_Fees" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_InvoiceDetails_Invoices" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_InvoiceDetails_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Invoices_CreatedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Payments_Invoices" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_LoginHistory_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_ParkingFees_VehicleTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_ParkingLogs_CheckInBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_ParkingLogs_CheckOutBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_ParkingLogs_Slots" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_ParkingLogs_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_ParkingSlots_Zones" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Vehicles_Slots" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Payments_ReceivedBy" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Vehicles_Residents" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_UserRoles_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_SystemConfigs_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_UserRoles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ParkingManagementModel.FK_Vehicles_VehicleTypes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
